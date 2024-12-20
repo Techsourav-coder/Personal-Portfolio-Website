@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Sourav Kundu Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: #f7f9fc;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #5d6be8, #39a977);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+nav {
+  background-color: #16c107,#c33764;
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 15px 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav .logo {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ffd700;
+}
+
+nav ul {
+  display: flex;
+  gap: 10px;
+  list-style: none;
+}
+
+nav ul li {
+  position: relative;
+}
+
+nav ul li a {
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 10px 10px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+  background-color: #ffd700;
+  color: #333;
+  border-radius: 5px;
+}
+
+nav ul li a.active {
+  background-color: #ffd700;
+  color: #333;
+}
+
+/* Dropdown Menu */
+nav ul li:hover .dropdown {
+  display: block;
+}
+
+nav .dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #333;
+  min-width: 200px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 10px 0;
+}
+
+nav .dropdown li {
+  padding: 10px 20px;
+}
+
+nav .dropdown li a {
+  padding: 8px 20px;
+  text-transform: capitalize;
+  font-weight: normal;
+}
+
+nav .dropdown li a:hover {
+  background-color: #ffd700;
+  color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px 5%;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  nav ul li {
+    width: 100%;
+  }
+
+  nav ul li a {
+    padding: 12px;
+    font-size: 1.2rem;
+  }
+
+  nav .dropdown {
+    position: relative;
+    width: 100%;
+  }
+
+  nav .dropdown li {
+    padding: 12px 20px;
+  }
+}
+
+/* Responsive Design Enhancements 
+@media (max-width: 480px) {
+  .navbar {
+    padding: 10px;
+  }
+
+  .navbar .logo {
+    font-size: 20px;
+  }
+
+  .navbar .nav-links {
+    font-size: 14px;
+  }
+}*/
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #00d9ff, #0077ff);
+  color: #fff;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero h1 span {
+  color: #fff700;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.hero .btn {
+  padding: 10px 20px;
+  background: #fff;
+  color: #0077ff;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+.hero .btn:hover {
+  background: #0077ff;
+  color: #fff;
+}
+
+/* About Section */
+.about {
+  padding: 50px 10%;
+  text-align: center;
+  background: #fff;
+}
+
+.about h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.about p {
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.8;
+}
+
+/* Skills Section */
+.skills {
+  padding: 50px 10%;
+  text-align: center;
+  background: #f7f9fc;
+}
+
+.skills h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.skill-list div {
+  padding: 10px 20px;
+  background: #0077ff;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.skill-list div:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Projects Section */
+.projects {
+  padding: 50px 10%;
+  background: #fff;
+}
+
+.projects h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #333;
+}
+
+.project {
+  margin: 20px auto;
+  padding: 20px;
+  background: #f7f9fc;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.project h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #0077ff;
+}
+
+.project p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #666;
+}
+
+.project a {
+  padding: 10px 15px;
+  background: #0077ff;
+  color: #fff;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.project a:hover {
+  background: #00d9ff;
+}
+
+/* Contact Section */
+.contact {
+  padding: 50px 10%;
+  text-align: center;
+  background: #0077ff;
+  color: #fff;
+}
+
+.contact h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.contact p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.contact-form {
+  margin-bottom: 2rem;
+}
+
+.contact-form .form-group {
+  margin-bottom: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  background: #f7f9fc;
+  color: #333;
+}
+
+.contact-form button {
+  padding: 10px 20px;
+  background: #fff700;
+  color: #0077ff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s, color 0.3s;
+}
+
+.contact-form button:hover {
+  background: #fff;
+  color: #0077ff;
+}
+
+.social-media {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-media a {
+  color: #fff;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.social-media a:hover {
+  color: #fff700;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #333;
+  color: #fff;
+  font-size: 0.9rem;
+}
+/* Hero Section with Image */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 10%;
+  background: linear-gradient(135deg, #00d9ff, #0077ff);
+  color: #fff;
+  text-align: center;
+  height: 100vh;
+}
+
+.hero-content {
+  flex: 1;
+  padding: 20px;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero-content h1 span {
+  color: #fff700;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.hero-content .btn {
+  padding: 10px 20px;
+  background: #fff;
+  color: #0077ff;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+.hero-content .btn:hover {
+  background: #0077ff;
+  color: #fff;
+}
+
+/* Hero Image */
+.hero-image {
+  flex: 1;
+  text-align: center;
+  position: relative;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 320px;
+  border-radius: none;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.hero-image img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    height: auto;
+    padding: 30px 10%;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-image img {
+    max-width: 300px;
+  }
+}
+/* General Hero Section Styling */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px 10%;
+  background: linear-gradient(135deg, #1d2671, #c33764);
+  color: #fff;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  flex: 1;
+  max-width: 500px;
+  padding: 20px;
+  text-align: left;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero-content h1 span {
+  color: #00d9ff;
+}
+
+.hero-content h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #ffd700;
+}
+
+.hero-content h3 span {
+  color: #ff6f61;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.hero-content .social-links {
+  margin-bottom: 2px;
+  padding: 12px;
+}
+
+.social-links a {
+  display: inline-block;
+  margin-right: 35px;
+  width: 50px;
+  height: 40px;
+}
+
+.social-links img {
+  width: 100%;
+  transition: transform 0.3s ease;
+}
+
+.social-links a:hover img {
+  transform: scale(1.2);
+}
+
+.hero-content .btn {
+  padding: 12px 24px;
+  background: #ffd700;
+  color: #1d2671;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s;
+}
+
+.hero-content .btn:hover {
+  background: #00d9ff;
+  transform: translateY(-3px);
+}
+
+/* Hero Image Styling */
+.hero-image {
+  flex: 1;
+  position: relative;
+  text-align: center;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 50%;
+  border: 8px solid #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.hero-image img:hover {
+  transform: scale(1.05);
+}
+
+.hero-image .decorative-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  height: 500px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+/* Responsive Design for Hero Section */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    height: auto;
+    text-align: center;
+    padding: 30px 10%;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-content h3 {
+    font-size: 1.6rem;
+  }
+
+  .hero-image {
+    flex: 1;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .hero-image img {
+    max-width: 300px; /* Adjust image size */
+    width: 80%; /* Make the image responsive */
+    border-radius: 50%;
+  }
+
+  .decorative-circle {
+    width: 300px;
+    height: 300px;
+  }
+
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .social-links a {
+    width: 40px; /* Reduce size of social icons */
+    height: 40px;
+  }
+
+  .social-links img {
+    width: 100%;
+    transition: transform 0.3s ease;
+  }
+
+  .social-links a:hover img {
+    transform: scale(1.2);
+  }
+
+  .hero-content .btn {
+    padding: 12px 24px;
+    font-size: 1rem; /* Adjust font size for mobile */
+  }
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    height: auto;
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-image img {
+    max-width: 300px;
+  }
+
+  .hero-image .decorative-circle {
+    width: 300px;
+    height: 300px;
+  }
+}
+.new{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1rem;
+    color:#0077ff ;
+}
+</style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMhce9fStVIsWTKrDd/bC1Uts7P+9b+zIf3R9U" crossorigin="anonymous">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav>
+      <div class="logo">Sourav Kundu</div>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Welcome! I'm <span>Sourav Kundu</span></h1>
+      <h3>Aspiring <span> Mechanical Engineer ,Full Stack Developer</span> & Machine Learning Enthusiast</h3>
+      <p>
+        I specialize in building responsive websites, crafting interactive user experiences, and applying machine learning techniques to solve real-world problems.Let’s create something amazing together!
+      </p>
+      <div class="social-links">
+        <a href="https://github.com/Techsourav-coder" target="_blank">
+          <img src="c:\Users\soura\Pictures\Screenshots\Screenshot 2024-12-20 223756.png" alt="GitHub">
+        </a>
+        <a href="https://www.linkedin.com/in/sourav-kundu" target="_blank">
+          <img src="c:\Users\soura\Pictures\Screenshots\Screenshot 2024-12-20 223828.png" alt="LinkedIn">
+        </a>
+        <a href="mailto:souravkundu@example.com">
+          <img src="c:\Users\soura\Pictures\Screenshots\Screenshot 2024-12-20 223853.png" alt="Email">
+        </a>
+      </div>
+     <a href="#about"> <button class="btn">Explore My Portfolio</button></a>
+    </div>
+    <div class="hero-image">
+      <img src="c:\Users\soura\Downloads\sourav.jpg" alt="Sourav Kundu" />
+      <div class="decorative-circle"></div>
+    </div>
+  </section>  
+  <!-- About Section -->
+  <section id="about" class="about">
+    <h2>About Me</h2>
+    <p>
+      I am an undergraduate engineer specializing in Computer Science Engineering with a minor in Artificial Intelligence and Machine Learning at IEM Salt Lake. I aim to create innovative solutions with a focus on modern web technologies and manufacturing processes.
+      I am a passionate web developer specializing in creating visually appealing and functional websites. 
+      With a strong background in Computer Science and expertise in modern web technologies, I aim to deliver 
+      exceptional digital experiences.Enthusiastic and self-motivated Mechanical Engineer & Frontend developer. Eager to solve real world
+      projects and bring my skill in frontend development, and visual design to every project that will be received
+      in the future. Learning AI and ML (Artificial Intelligence and Machine Learning) involves understanding
+      how to create systems that can learn from data, make decisions, and improve over time without being
+      explicitly programmed for each task. The journey includes learning foundational math, algorithms.
+    </p>
+    <h2>Education</h2>
+    <p> Ranaghat Palchowdhury High School WBBSE-12tb-88%-97.5 percentile           2023</p>
+      <p>  INSTITUTE OF ENGINEERING & MANAGEMENT (IEM) SALTLAKE, KOLLATA
+        Bachelor of Technology (b. tech) , Mechanical Engineering, CSE(AIML) SGPA: 9.5 YGPA-8.8              2023-2027</p>
+        <h2>Position Of Responsibility</h2>
+        <p class="new"> <li>Professional membership & Technical chair in ISHRAE 2024-present</li>
+           <li> Member & works as Co-Lead in SOLAR DECATHLON INDIA (SDI) 2024-Present</li>
+            <li>Official participant in NSDC(National Student Designing Competition) 2024-prese</li>
+        <li>Member at PLACE_COMM IEM PLACEMENT COMMITEE 2024-Present</li></p>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="skills">
+    <h2>Skills</h2>
+    <div class="skill-list">
+      <div>HTML5</div>
+      <div>CSS3</div>
+      <div>JavaScript</div>
+      <div>React.js</div>
+      <div>Machine Learning</div>
+      <div>Advanced Manufacturing</div>
+      <div>Python and Machine Learning DSA in C++</div>
+           <div> BOOTSTRAP, GitHub</div>
+           <div> Machine Learning ML Algorithms</div>            
+           <div> Heat Load Calculation</div>
+                <div>PYTHON, Design Builder, PVsyst</div>
+                <div>Communication Skill, Solar Energy Calc</div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects">
+    <h2>Projects</h2>
+    <div class="project">
+      <h3>Responsive Landing Page</h3>
+      <p>A responsive landing page built with HTML, CSS, and JavaScript featuring a clean, modern design, smooth navigation, and dynamic effects.</p>
+      <a href="https://github.com/Techsourav-coder/Responsive-Landing-Page.git" target="_blank">View Project</a>
+    </div>
+    <div class="project">
+      <h3>Tic Tac Toe Web Application</h3>
+      <p>An interactive Tic Tac Toe game built with HTML, CSS, and JavaScript, featuring AI mode and smooth gameplay.</p>
+      <a href="https://github.com/Techsourav-coder/Tic-Tac-Toe-Web-Application" target="_blank">View Project</a>
+    </div>
+    <div class="project">
+      <h3>Stopwatch</h3>
+      <p>A fully functional stopwatch application built with HTML, CSS, and JavaScript with an elegant design.</p>
+      <a href="https://github.com/Techsourav-coder" target="_blank">View Project</a>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <h2>Contact Me</h2>
+    <p>If you'd like to collaborate or discuss a project, feel free to get in touch!</p>
+    <div class="contact-form">
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="form-group">
+          <input type="text" name="name" placeholder="Your Name" required>
+        </div>
+        <div class="form-group">
+          <input type="email" name="_replyto" placeholder="Your Email" required>
+        </div>
+        <div class="form-group">
+          <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+    </div>
+    <div class="social-media">
+      <a href="https://github.com/Techsourav-coder" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/YOUR_PROFILE" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="mailto:souravkundu@example.com"><i class="fas fa-envelope"></i></a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2024 Sourav Kundu. All rights reserved.</p>
+  </footer>
+
+  <!-- Smooth Scroll -->
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>
